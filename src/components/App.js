@@ -24,7 +24,7 @@ function App() {
     }
   })
 
-  const addNewTask = (newTask) => {
+  const onTaskFormSubmit = (newTask) => {
     setTaskList([...tasks, newTask])
   }
 
@@ -36,7 +36,10 @@ function App() {
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
       />
-      <NewTaskForm categories={CATEGORIES} addNewTask={addNewTask} />
+      <NewTaskForm
+        categories={CATEGORIES}
+        onTaskFormSubmit={onTaskFormSubmit}
+      />
       <TaskList tasks={filteredTasks} deleteTask={deleteTask} />
     </div>
   )
