@@ -8,19 +8,19 @@ console.log("Here's the data you're working with")
 console.log({CATEGORIES, TASKS})
 
 function App() {
-  const [tasks, SetTaskList] = useState()
+  const [tasks, setTaskList] = useState(TASKS)
 
-  // const taskList = TASKS.map((task) => {
-  //   console.log(task)
-  // })
-  // console.log(taskList)
+  const deleteTask = (task) => {
+    const updatedTaskList = tasks.filter((t) => t.text !== task.text)
+    setTaskList(updatedTaskList)
+  }
 
   return (
     <div className="App">
       <h2>My tasks</h2>
       <CategoryFilter />
       <NewTaskForm />
-      <TaskList tasks={TASKS} />
+      <TaskList tasks={tasks} deleteTask={deleteTask} />
     </div>
   )
 }
