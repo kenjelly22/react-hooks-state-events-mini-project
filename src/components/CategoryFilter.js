@@ -1,12 +1,11 @@
-import React, {useState} from "react"
+import React from "react"
 
-function CategoryFilter({categories}) {
-  const [selectedCategory, setSelectedCategory] = useState("All")
-
+function CategoryFilter({categories, selectedCategory, setSelectedCategory}) {
   const handleCategory = (event) => {
     const category = event.target.textContent
     setSelectedCategory(category)
   }
+
   return (
     <div className="categories">
       <h5>Category filters</h5>
